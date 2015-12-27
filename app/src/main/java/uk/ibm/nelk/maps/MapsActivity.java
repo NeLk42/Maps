@@ -1,7 +1,10 @@
 package uk.ibm.nelk.maps;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -58,23 +61,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        LatLng resLocation = new LatLng(-34, 151);
+        String resTitle = "";
         switch (item.getItemId()) {
             case R.id.menu_location:
+
+
                 // Here we might call LocationManager.requestLocationUpdates()
                 return true;
 
             case R.id.london:
                 // Here we would set latitude and longitude to london's coordinates
+                resLocation = new LatLng(51.5030792,-0.1089423);
+                resTitle = "Marker in London";
                 return true;
 
             case R.id.madrid:
                 // Here we would set latitude and longitude to madrid's coordinates
+                resLocation = new LatLng(40.4378698,-3.8196192);
+                resTitle = "Marker in Madrid";  
                 return true;
 
             case R.id.malaga:
                 // Here we would set latitude and longitude to malaga's coordinates
+                resLocation = new LatLng(36.7647499,-4.5642721);
+                resTitle = "Marker in Malaga";
                 return true;
         }
+        mMap.addMarker(new MarkerOptions().position(resLocation).title(resTitle));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(resLocation));
 
         return super.onOptionsItemSelected(item);
     }
