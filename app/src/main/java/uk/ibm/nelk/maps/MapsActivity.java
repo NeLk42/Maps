@@ -3,7 +3,6 @@ package uk.ibm.nelk.maps;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -60,16 +59,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_refresh:
-                // Here we might start a background refresh task
-                return true;
-
             case R.id.menu_location:
                 // Here we might call LocationManager.requestLocationUpdates()
                 return true;
 
-            case R.id.menu_settings:
-                // Here we would open up our settings activity
+            case R.id.london:
+                // Here we would set latitude and longitude to london's coordinates
+                return true;
+
+            case R.id.madrid:
+                // Here we would set latitude and longitude to madrid's coordinates
+                return true;
+
+            case R.id.malaga:
+                // Here we would set latitude and longitude to malaga's coordinates
                 return true;
         }
 

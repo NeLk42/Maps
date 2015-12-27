@@ -4,4 +4,7 @@
     <string name="menu_location">Location</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_settings">Settings</string>
+    <string name="madrid">Madrid</string>
+    <string name="london">London</string>
+    <string name="malaga">Malaga</string>
 </resources>
